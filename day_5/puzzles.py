@@ -37,4 +37,4 @@ def p2():
                 min_len = len(res)
         return min_len
 
-print(p2())
+# print(p2())
