@@ -24,7 +24,7 @@ def p1():
         res = reduce(react, prepare_polymer_arr(polymer))
         return len(res)
 
-# print(p1())
+print(p1())
 
 def p2():
     with open('input.txt', 'r') as file:
@@ -37,4 +37,4 @@ def p2():
                 min_len = len(res)
         return min_len
 
-# print(p2())
+print(p2())

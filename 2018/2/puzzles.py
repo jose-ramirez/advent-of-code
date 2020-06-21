@@ -27,7 +27,7 @@ def p1():
                 three_counts += 1
         return two_counts * three_counts
 
-# print(p1())
+print(p1())
 
 def p2():
     with open('input.txt', 'r') as file:
@@ -39,5 +39,4 @@ def p2():
                         if ids[i][k] != ids[j][k]:
                             return ids[i][:k] + ids[i][(k + 1):]
 
-
-# print(p2())
+print(p2())

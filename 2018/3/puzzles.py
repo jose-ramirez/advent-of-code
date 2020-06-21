@@ -32,7 +32,7 @@ def p1():
             count += len([x for x in row if x > 1])
         return count
 
-# print(p1())
+print(p1())
 
 def p2():
     with open('input.txt', 'r') as file:
@@ -45,4 +45,4 @@ def p2():
             if not overlaps:
                 return r[i][0][1:]
 
-# print(p2())
+print(p2())

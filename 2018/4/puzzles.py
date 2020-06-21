@@ -1,5 +1,6 @@
 from datetime import datetime
 from collections import defaultdict
+import time
 
 def getTimestamp(log_string):
     data = log_string.split(' ')
@@ -84,7 +85,7 @@ def p1():
     totals_per_minute = list(map(sum, zip(*rows)))
     return totals_per_minute.index(max(totals_per_minute)) * int(sleepiest_id)
 
-# print(p1())
+print(p1())
 
 def p2():
     tracks = get_all_sleep_tracks()
@@ -96,4 +97,4 @@ def p2():
             max_id, max_count = k, v
     return int(max_id) * max_count[0]
 
-# print(p2())
+print(p2())
