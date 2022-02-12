@@ -2,3 +2,5 @@ __pycache__/
 .pytest_cache/
 .vscode
 .python-version
+INCOMPLETE.txt
+.DS_Store
