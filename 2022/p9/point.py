@@ -30,6 +30,42 @@ class Point:
     def is_sw(self, other):
         return self.x < other.x and self.y < other.y
 
+    def is_up(self, other):
+        return self.y > other.y and self.x == other.x
+
+    def is_down(self, other):
+        return self.y < other.y and self.x == other.x
+
+    def is_left(self, other):
+        return self.y == other.y and self.x < other.x
+
+    def is_right(self, other):
+        return self.y == other.y and self.x > other.x
+
+    def move_ne(self):
+        return Point(self.x + 1, self.y + 1)
+
+    def move_nw(self):
+        return Point(self.x - 1, self.y + 1)
+
+    def move_se(self):
+        return Point(self.x + 1, self.y - 1)
+
+    def move_sw(self):
+        return Point(self.x - 1, self.y - 1)
+
+    def move_up(self):
+        return Point(self.x, self.y + 1)
+
+    def move_down(self):
+        return Point(self.x, self.y - 1)
+
+    def move_left(self):
+        return Point(self.x - 1, self.y)
+
+    def move_right(self):
+        return Point(self.x + 1, self.y)
+
     def translate(self, x_, y_):
         self.x += x_
         self.y += y_

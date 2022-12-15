@@ -1,5 +1,7 @@
 from point import Point
 from cartesian import Cartesian
+
+
 class Rope:
     # head is the last item, tail is the first one:
     def __init__(self, size) -> None:
@@ -10,17 +12,22 @@ class Rope:
     def update_knot_position(self, tail_index, head_index, direction):
         tail, head = self.knots[tail_index], self.knots[head_index]
         if not tail.is_next(head):
-            if tail.in_line(head):
-                self.knots[tail_index] = tail.move(direction)
-            else:
-                if head.is_ne(tail):
-                    self.knots[tail_index] = Point(tail.x + 1, tail.y + 1)
-                elif head.is_nw(tail):
-                    self.knots[tail_index] = Point(tail.x - 1, tail.y + 1)
-                elif head.is_se(tail):
-                    self.knots[tail_index] = Point(tail.x + 1, tail.y - 1)
-                else:
-                    self.knots[tail_index] = Point(tail.x - 1, tail.y - 1)
+            if head.is_up(tail):
+                self.knots[tail_index] = tail.move_up()
+            elif head.is_down(tail):
+                self.knots[tail_index] = tail.move_down()
+            elif head.is_left(tail):
+                self.knots[tail_index] = tail.move_left()
+            elif head.is_right(tail):
+                self.knots[tail_index] = tail.move_right()
+            elif head.is_nw(tail):
+                self.knots[tail_index] = tail.move_nw()
+            elif head.is_ne(tail):
+                self.knots[tail_index] = tail.move_ne()
+            elif head.is_sw(tail):
+                self.knots[tail_index] = tail.move_sw()
+            elif head.is_se(tail):
+                self.knots[tail_index] = tail.move_se()
 
     def step(self, direction):        
         self.knots[-1] = self.knots[-1].move(direction)
@@ -39,9 +46,9 @@ with open('input', 'r') as input:
     rope = Rope(10)
     for line in input.readlines():
         direction, times = line.strip().split(' ')
-        print(f'=== {direction} {times} ===')
+        # print(f'=== {direction} {times} ===')
         for i in range(int(times)):
             rope.step(direction)
-            rope.plot_rope(Cartesian(15, 15, 15, 15))
-            print()
+            # rope.plot_rope(Cartesian(15, 15, 15, 15))
+            # print()
     print(len(rope.tail_steps))
